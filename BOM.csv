@@ -1,0 +1,15 @@
+part name,quantity,vendor,approx cost (inr)
+raspberry pi 4 model b with 4gb ram,1,robu.in,6369.00
+sensirion sen55 particle & gas sensor,1,tanotis,3,845.92
+waveshare 4.2-inch e-paper module,1,robu.in,2825.00
+official raspberry pi micro sd card (64gb),1,robu.in,899.00
+raspberry pi power adapter (5.1v 3a),1,robu.in,349.30
+smartelex logic level converter (bi-directional),1,robu.in,39.00
+ttp223b touch sensor,1,robu.in,15.00
+2.54mm 2x20 pin female header,1,robu.in,10.00
+custom pcb manufacturing (seeed studio),5,seeed studio,$4.90
+pcb shipping (dhl),1,seeed studio,$28.48
+
+robu.in,₹ 10,506
+tanotis.com,₹3,846
+seedstudio.com,$33.38
