@@ -14,6 +14,7 @@ i decided to make this project so i can have it as my personal home air station 
 6. Male Headers (1x40 Pin, 2.54mm) - 1
 7. Female Headers (2x20 Pin, 2.54mm) - 1 
 8. TTP223 Touch Sensor (Module) - 1 - input sensor
+9 sd card 32 gb - 1 - for storage
 
 i found all the components on robu except SEN54 which i found on Tanotis
 
