@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroInk Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .metric-card { text-align: center; margin-bottom: 20px; }
+        .metric-value { font-size: 2.5rem; font-weight: bold; color: #333; }
+        .metric-unit { font-size: 1rem; color: #666; }
+        .status-badge { font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">AeroInk Station</span>
+            <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        
+        <!-- Status Row -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <span class="badge bg-secondary" id="timestamp">Loading...</span>
+            </div>
+            <div>
+                Sensor Status: <span class="badge bg-success" id="sensor-status">Waiting</span>
+            </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="row">
+            <!-- PM2.5 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card metric-card border-primary">
+                    <div class="card-header bg-primary text-white">PM2.5</div>
+                    <div class="card-body">
+                        <div class="metric-value" id="pm25">--</div>
+                        <div class="metric-unit">µg/m³</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VOC Index -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card metric-card border-warning">
+                    <div class="card-header bg-warning text-dark">VOC Index</div>
+                    <div class="card-body">
+                        <div class="metric-value" id="voc">--</div>
+                        <div class="metric-unit">Index (0-500)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Temperature -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card metric-card border-info">
+                    <div class="card-header bg-info text-white">Temperature</div>
+                    <div class="card-body">
+                        <div class="metric-value" id="temp">--</div>
+                        <div class="metric-unit">°C</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Humidity -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card metric-card border-info">
+                    <div class="card-header bg-info text-white">Humidity</div>
+                    <div class="card-body">
+                        <div class="metric-value" id="humidity">--</div>
+                        <div class="metric-unit">% RH</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PM10 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card metric-card">
+                    <div class="card-header">PM10</div>
+                    <div class="card-body">
+                        <div class="metric-value" id="pm10">--</div>
+                        <div class="metric-unit">µg/m³</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Image Upload Section -->
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Photo Frame Settings
+                    </div>
+                    <div class="card-body">
+                        <p>Upload a new image for the E-Ink "Photo Frame" mode.</p>
+                        <form action="/upload" method="post" enctype="multipart/form-data">
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" name="file" accept="image/*" required>
+                                <button class="btn btn-outline-secondary" type="submit">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Live Data Script -->
+    <script>
+        function updateData() {
+            fetch('/api/data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('timestamp').innerText = data.timestamp || "No Data";
+                    document.getElementById('sensor-status').innerText = data.sensor_status;
+                    
+                    document.getElementById('pm25').innerText = data.pm2_5;
+                    document.getElementById('voc').innerText = data.voc_index;
+                    document.getElementById('temp').innerText = data.temperature;
+                    document.getElementById('humidity').innerText = data.humidity;
+                    document.getElementById('pm10').innerText = data.pm10;
+                })
+                .catch(err => console.error("Error fetching data:", err));
+        }
+
+        // Poll every 2 seconds
+        setInterval(updateData, 2000);
+        updateData(); // Initial call
+    </script>
+</body>
+</html>
