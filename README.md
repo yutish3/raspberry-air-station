@@ -29,6 +29,20 @@ i found all the components on robu except SEN54 which i found on Tanotis
 <img width="513" height="591" alt="image" src="https://github.com/user-attachments/assets/1b33d0f0-88cb-46fe-a269-6f3c5ebcec18" />
 <img width="549" height="626" alt="image" src="https://github.com/user-attachments/assets/88d1899d-5447-4131-abd1-af00f280f7ca" />
 
+#BOM images
+<img width="1062" height="828" alt="image" src="https://github.com/user-attachments/assets/01ebc540-8e06-4951-b759-91ae1a5d40fa" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ca72b33b-fa29-4992-95a5-3d3b2dfb24d8" />
+
+<img width="1495" height="827" alt="image" src="https://github.com/user-attachments/assets/8d575d68-a3d3-4b6a-b9fc-0462487a2a5a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4866b381-cca4-4111-a1ed-b7124f00568a" />
+
+<img width="1335" height="863" alt="image" src="https://github.com/user-attachments/assets/3ee2551d-a362-4576-8440-6610fd1cd4e2" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2035d452-9d55-4365-a5ee-bec6701dc8b0" />
+
+
+
+
+
 
 
 
